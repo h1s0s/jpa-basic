@@ -40,24 +40,24 @@ public class JpaMain {
 //            tx.commit();
             /* select */
             //지정 회원 조회
-            Member findMember = em.find(Member.class, 1L);
+//            Member findMember = em.find(Member.class, 1L);
 
             //전체 회원 조회
 //            List<Member> result = em.createQuery("select m from Member as m where m.name=helloA", Member.class)
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
                     //페이징
 //                    .setFirstResult(1)
 //                    .setMaxResults(8)
-                                    .getResultList();
-            for(Member member : result){
-                System.out.println("member.name="+member.getName());
-            }
+//                                    .getResultList();
+//            for(Member member : result){
+//                System.out.println("member.name="+member.getName());
+//            }
 
             /* delete */
 //            em.remove(findMember);
 
             /* update */
-            findMember.setName("HelloJPA");
+//            findMember.setName("HelloJPA");
             //이것만 해도 업데이트 됨..
 
             tx.commit();
