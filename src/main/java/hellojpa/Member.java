@@ -19,7 +19,7 @@ import java.util.Date;
 
 @Entity
 //@Table(name="USER") //클래스명과 테이블명 다를때
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     private Long id;
