@@ -99,16 +99,9 @@ public class Member extends BaseEntity{
         this.roleType = roleType;
     }
 
-    @Override public Date getCreatedDate() {
-        return createdDate;
-    }
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
-    }
-
-    @Override public Date getLastModifiedDate() {
-        return lastModifiedDate;
     }
 
     public void setLastModifiedDate(Date lastModifiedDate) {

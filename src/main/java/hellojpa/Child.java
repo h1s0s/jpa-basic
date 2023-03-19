@@ -4,30 +4,29 @@ import javax.persistence.*;
 
 /**
  * packageName  : hellojpa
- * fileName     : Member2
+ * fileName     : Child
  * author       : sshan
- * date         : 2023-03-11
+ * date         : 2023-03-19
  * description  :
  * ========================================================
  * DATE            AUTHOR              NOTE
  * --------------------------------------------------------
- * 2023-03-11          sshan            최초생성
+ * 2023-03-19          sshan            최초생성
  */
 @Entity
-public class Member2 {
+public class Child extends Parent{
 
     @Id
-    @GeneratedValue//기본키
+    @GeneratedValue
     private Long id;
 
-    @Column(name = "USERNAME")
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)//단방향 연관관계일때 1:다, 다인 쪽일땐 ManyToOne 1인 쪽에선 OneToMany
-    @JoinColumn(name = "TEAM_ID")
-    private Team team;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private Parent parent;
 
-    public Member2() {
+    public Child() {
     }
 
     public Long getId() {
@@ -46,11 +45,11 @@ public class Member2 {
         this.name = name;
     }
 
-    public Team getTeam() {
-        return team;
+    public Parent getParent() {
+        return parent;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
+    public void setParent(Parent parent) {
+        this.parent = parent;
     }
 }
