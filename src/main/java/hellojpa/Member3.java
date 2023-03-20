@@ -39,6 +39,20 @@ public class Member3 {
     @JoinTable(name = "MEMBER_PRDUCT")//다대다 관계를 관계형 데이터베이스에서는, 중간에 테이블을 하나 생성하여 관계를 풀어냄
     private List<Product> products = new ArrayList<>();
 
+    @Embedded
+    private Period workPeriod;
+
+    @Embedded
+    private Address homeAddress;
+    @Embedded
+    @AttributeOverrides({//임베디드를 여러개 쓸때, 컬럼명이 겹치는 문제가 발생되는데 해당 어노테이션으로 처리 가능
+        @AttributeOverride(name="city", column=@Column(name = "WORK_CITY")),
+        @AttributeOverride(name="street", column=@Column(name = "WORK_STREET")),
+        @AttributeOverride(name="zipCode", column=@Column(name = "WORK_ZIPCODE"))
+    })
+    private Address workAddress;
+
+
     public Member3() {
     }
 
@@ -64,5 +78,48 @@ public class Member3 {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    public Locker getLocker() {
+        return locker;
+    }
+
+    public void setLocker(Locker locker) {
+        this.locker = locker;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public Period getWorkPeriod() {
+        return workPeriod;
+    }
+
+    public void setWorkPeriod(Period workPeriod) {
+        this.workPeriod = workPeriod;
+    }
+
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public Address getWorkAddress() {
+        return workAddress;
+    }
+
+    public void setWorkAddress(Address workAddress) {
+        this.workAddress = workAddress;
+    }
+
+    public void getName(String member1) {
     }
 }
